@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>MiniTweet</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+   <header class="header">
+    <%= link_to "minitweet",  root_path %>
+      <% if user_signed_in? %>
+       <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+       <%= link_to "新規投稿", new_tweet_path %>
+      <% else %>
+          <%= link_to "ログイン", new_user_session_path, class: 'post' %>
+          <%= link_to "新規登録", new_user_registration_path, class: 'post' %>
+      <% end %>
+  </header>
+    <%= yield %>
+  </body>
+</html>
