@@ -1,0 +1,5 @@
+<%= form_for @tweet, url: tweet_path, html: { method: :patch } do |f| %>
+   <h1>テキスト編集</h1>
+  <p><%= f.text_area :tweets, style: 'width: 900px;height: 300px;' %></p>
+  <input type="submit" value="送信" > 
+<% end %>

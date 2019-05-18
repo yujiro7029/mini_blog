@@ -7,17 +7,27 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   </head>
 
   <body>
-   <header class="header">
-    <%= link_to "minitweet",  root_path %>
+   <header>
+     <div class="header-logo">
+        <%= link_to "miniblog",  root_path %>
+      </div>
+      <div class="gap"></div>
       <% if user_signed_in? %>
-       <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-       <%= link_to "新規投稿", new_tweet_path %>
-      <% else %>
-          <%= link_to "ログイン", new_user_session_path, class: 'post' %>
-          <%= link_to "新規登録", new_user_registration_path, class: 'post' %>
+        <div class="header-menus">
+        <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+        <%= link_to "新規投稿", new_tweet_path %>
+       <%= link_to "マイページ","/users/#{current_user.id}" %>
+        </div>
+        <% else %>
+        <div class="header-menus">
+            <%= link_to "ログイン", new_user_session_path, class: 'post' %>
+            <%= link_to "新規登録", new_user_registration_path, class: 'post'%>
+           
+        </div>
       <% end %>
   </header>
     <%= yield %>

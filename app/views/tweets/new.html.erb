@@ -1,7 +1,7 @@
-
-<h1>新規投稿</h1>
-
-
-
-  <li>投稿フォーム</li>
-  <li>送信ボタン</li>
+<div class="form-group">
+<%= form_for @tweet, url: tweets_path, method: :post do |f| %>
+  <h2>新規登録</h2>
+  <p><%= f.text_area :tweets,placeholder: 'ブログを投稿して下さい', style: 'width: 900px;height: 300px;' %></p>
+  <input type="submit" value="送信" class="btn btn-outline-success">
+<% end %>
+</div>
