@@ -1,0 +1,10 @@
+ <span>投稿者名:<%= tweet.user.name%></span>
+      <div class="box-text">
+        <p class="box_text"><%= tweet.tweets%></p>
+      </div>
+    <% if user_signed_in? && current_user.id == tweet.user_id %>
+        <ul>
+         <%= link_to "削除", tweet_path(tweet), method: :delete, data: {confirm: "削除しますか?"} %></li>
+         <%= link_to "編集", edit_tweet_path(tweet)%></li>
+        </ul>
+    <%end%>
