@@ -15,20 +15,20 @@
      <div class="header-logo">
         <%= link_to "miniblog",  root_path %>
       </div>
-      <div class="gap"></div>
+
+        <div class="headder-menu">
       <% if user_signed_in? %>
-        <div class="header-menus">
-        <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-        <%= link_to "新規投稿", new_tweet_path %>
-       <%= link_to "マイページ","/users/#{current_user.id}" %>
-        </div>
+      
+        <p><%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'headder-menu' %></p>
+        <p><%= link_to "新規投稿", new_tweet_path, class: 'headder-menu' %></p>
+       <p><%= link_to "マイページ","/users/#{current_user.id}", class: 'headder-menu' %></p>
+       
         <% else %>
-        <div class="header-menus">
-            <%= link_to "ログイン", new_user_session_path, class: 'post' %>
-            <%= link_to "新規登録", new_user_registration_path, class: 'post'%>
-           
-        </div>
+            <%= link_to "ログイン", new_user_session_path, class: 'headder-menu' %>
+            <%= link_to "新規登録", new_user_registration_path, class: 'headder-menu'%>
+            </div>
       <% end %>
+        
   </header>
     <%= yield %>
   </body>
