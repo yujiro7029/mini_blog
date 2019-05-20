@@ -1,9 +1,7 @@
 
 <div class="container">
 <div class="box">
-<% @tweets.each do |tweet|%>
   <%= render  @tweets %>
- <%end%>
 </div>
 <%= paginate(@tweets) %>
  </div>
